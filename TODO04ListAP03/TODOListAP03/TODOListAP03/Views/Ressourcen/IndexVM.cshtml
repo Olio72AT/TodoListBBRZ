@@ -1,0 +1,112 @@
+﻿@model IEnumerable<TODOListAP03.ViewModels.ResourcenTodosDetailsViewModel>
+
+@{
+    ViewBag.Title = "IndexVM";
+}
+
+<h2>IndexVM</h2>
+
+<p>
+    @Html.ActionLink("Create New Ressource", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TodosVM.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TodosVM.Nummer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TodosVM.Kurzbeschreibung)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TodosVM.DetailsId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TodosVM.Beschreibung)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TodosVM.Done)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    if (item.Active == true)
+    { 
+    <tr>
+        @{ 
+            if (item.Name != "")
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+
+            }
+            else
+
+            {
+                <td>
+                   <!-- nix --> 
+                </td>
+
+            }
+
+        }
+    
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TodosVM.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TodosVM.Nummer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TodosVM.Kurzbeschreibung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TodosVM.DetailsId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TodosVM.Beschreibung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TodosVM.Done)
+        </td>
+
+        @{
+            if (item.Name != "")
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id, oliver = "hello" }) |
+                    @Html.ActionLink("Add Todo", "AddTodo", new { id = item.Id })
+                </td>
+            }
+            else
+            {
+                <td>
+                    @Html.ActionLink("Delete Todo", "DeleteTodo", new { id = item.Id, todoid = item.TodosVM.Id })
+                </td>
+
+            }
+
+        }
+
+    </tr>
+    }
+}
+
+</table>

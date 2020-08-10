@@ -1,0 +1,66 @@
+﻿@model IEnumerable<TODOListAP03.Models.Todos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nummer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kurzbeschreibung)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DetailsId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Done)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    if (item.Active == true)
+    { 
+
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Nummer)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Kurzbeschreibung)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DetailsId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Done)
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </td>
+</tr>
+    }
+
+}
+
+</table>

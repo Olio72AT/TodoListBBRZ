@@ -1,0 +1,7 @@
+﻿
+
+## Code um ein SubElement aus einer Liste zu entfernen. 
+
+1) Model: Resourcen 
+1b) Resourcen --> TodosId (Liste aus Todos) 
+1c) Element, dass ich rausnehmen möchte -> ResourcesListe.Remove(todosid)

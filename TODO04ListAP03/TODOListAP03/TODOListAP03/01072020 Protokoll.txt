@@ -1,0 +1,16 @@
+﻿Eure Aufgabe für nächstes Mal: 
+
+1) Code Review des bestehenden Projekts 
+
+
+2) Programmieren von den ViewActions in IndexVM (Resourcen)
+
+2a) CreateRessource: Ansicht hinzufügen -> ID, NAME (Rest nicht berücksichtigen)
+
+2b) AddTodo: Über simples Eingabefeld, die TodosID abfragen und 
+im Model Ressourcen, die TodosId Liste auffüllen. 
+
+2c) DeleteTodo: Per Link das Elemente auswählen und aus der SubListe von Resourcen 
+rausnehmen. 
+
+3) Fleissaufgabe: IndexVM -> EDIT, DETAILS, DELETE 

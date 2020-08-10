@@ -1,0 +1,17 @@
+﻿## TODO List
+
+
+1) Browse the old projects, we have done and try to remember the logic behind it
+2) Create the Details View for the Todos Model in the Todos Controller ... 
+3) Try to delevop "senseful" data annotations for the Todos, so that users can only enter valid data
+4) Add 2 TODOS items initially, when starting the APP. (Global A) 
+5) Make sure, that users can only enter Todos, when the corresponding DetailsID is existing -> 
+Todos.DetailsId == Details.Id
+
+-> In case it does not exist -> Return an ViewBag.Error Message ("DetailsId does not match given Details")
+
+Have fun ... ;) 
+
+
+
+

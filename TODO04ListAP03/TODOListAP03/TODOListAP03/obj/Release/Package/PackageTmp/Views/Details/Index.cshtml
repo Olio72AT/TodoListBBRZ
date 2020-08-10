@@ -1,0 +1,34 @@
+﻿@model IEnumerable<TODOListAP03.Models.Details>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Beschreibung)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Beschreibung)
+    </td>
+    
+</tr>
+}
+
+</table>
