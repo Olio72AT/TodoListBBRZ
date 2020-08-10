@@ -1,0 +1,54 @@
+﻿@model TODOListAP03.ViewModels.ResourcenTodosRemoveViewModel
+
+@{
+    ViewBag.Title = "DeleteTodo";
+}
+
+<h2>DeleteTodo</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ResourcenTodosRemoveViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @*
+        Add Resources values to display ...
+        *@
+        <dt>
+            @Html.DisplayNameFor(model => model.Res.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Res.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Res.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Res.Name)
+        </dd>
+
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TodoId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TodoId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "IndexVM")
+        </div>
+    }
+</div>

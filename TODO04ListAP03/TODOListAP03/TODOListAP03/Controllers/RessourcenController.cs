@@ -222,21 +222,45 @@ namespace TODOListAP03.Controllers
             }
         }
 
+        // DeleteTodo: Add a separate GET Method: 
 
-        // GET: Ressourcen/Delete/5
         public ActionResult DeleteTodo(int id, int todoid)
         {
-            // 
+            // So what do we want to transfer to the view? 
+
             var ResourceToBeModified = ResourcesListe.Where(x => x.Id == id).FirstOrDefault();
             var TodoListToModify = ResourceToBeModified.TodosId;
-            
-            TodoListToModify.Remove(todoid);
-            ResourceToBeModified.TodosId = TodoListToModify;
 
-            // ResourcesListe.Remove(ResourceToBeModified);
-            // ResourcesListe.Add(ResourceToBeModified);
+            // To combine those again, we need another ViewModel -> ResourcenTodosRemoveViewModel.cs 
 
-            // return View();
+            ResourcenTodosRemoveViewModel RTRVM = new ResourcenTodosRemoveViewModel();
+
+            RTRVM.Res = ResourceToBeModified;
+
+            // We only want this one INT entry ...
+            RTRVM.TodoId = TodoListToModify.Where(y => y == todoid).FirstOrDefault();
+
+
+            return View(RTRVM);
+
+            // return RedirectToAction("IndexVM");
+        }
+
+
+
+
+        // Change old GET to POST
+        [HttpPost]
+        public ActionResult DeleteTodo(int id, ResourcenTodosRemoveViewModel RTRVM)
+        {
+            // We need to expand the POST parameter in order to realize the GET with ResourcenTodosRemoveViewModel var
+
+            var ResourceToBeModified = ResourcesListe.Where(x => x.Id == id).FirstOrDefault();
+            var TodoListItemToModify = RTRVM.TodoId;
+
+            // Access the TodoList in ResourceListe and REMOVE the LIST item out of the ResourcesListe
+
+            ResourceToBeModified.TodosId.Remove(TodoListItemToModify);
 
             return RedirectToAction("IndexVM");
         }
