@@ -268,7 +268,7 @@ namespace TODOListAP03.Controllers
 
 
 
-        // GET: Ressourcen/Create
+        // GET: Ressourcen/AddTodo
         public ActionResult AddTodo(int Id)
         {
             // First, we receive the RESOURCE ID ... 
@@ -294,7 +294,7 @@ namespace TODOListAP03.Controllers
             return View(LineToDisplay);
         }
 
-        // POST: Ressourcen/Create
+        // POST: Ressourcen/AddTodo
         [HttpPost]
         public ActionResult AddTodo(int Id, int TodoItem)
         {

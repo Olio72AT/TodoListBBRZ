@@ -75,11 +75,19 @@ IEnumerable is therefore easy to use.)
 
 .) Then implement the GET View
 
+https://github.com/Olio72AT/TodoListBBRZ/blob/V3-AddTodo/TODO04ListAP03/TODOListAP03/TODOListAP03/Controllers/RessourcenController.cs
+
+
 .) Create an "EDIT" AddTodo View and change the given parameters 
+
+https://github.com/Olio72AT/TodoListBBRZ/blob/V3-AddTodo/TODO04ListAP03/TODOListAP03/TODOListAP03/Views/Ressourcen/AddTodo.cshtml
+
 
 .) After is it running, test it by debugging 
 
 .) Implement the POST Part
+
+https://github.com/Olio72AT/TodoListBBRZ/blob/V3-AddTodo/TODO04ListAP03/TODOListAP03/TODOListAP03/Controllers/RessourcenController.cs
 
 Have fun!
 
