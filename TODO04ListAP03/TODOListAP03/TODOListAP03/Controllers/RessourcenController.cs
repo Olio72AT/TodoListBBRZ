@@ -276,24 +276,16 @@ namespace TODOListAP03.Controllers
 
             var ResourceToModify = ResourcesListe.Where(x => x.Id == Id).FirstOrDefault();
                        
-
-            // Instanciate the ViewModel to display, so add and access
-            // Add above: 
-            // public static List<AddTodoViewModel> AddTodoAnzeigeListe = new List<AddTodoViewModel>();
-            // now access it.
-
             var LineToDisplay = new AddTodoViewModel();
 
             LineToDisplay.ResourceId = ResourceToModify.Id;
             LineToDisplay.ResourceName = ResourceToModify.Name;
 
-            // Now lets prepare the LIST of Todos by accessing the TodosListe of all existing Todos
-                       
             // V4 AddTodo Part: Transfer only missing items:
             // Bad solution: SQL queries, if you have many items ... (if the DB is externaly bind)
-            // Better read all Tasks once, then campare in memory with LINQ
+            // Better read all TODOS once, then compare in memory with LINQ
 
-            // HOW TO FIND NOT EXISTING TODOS 
+            // HOW TO FIND NOT EXISTING TODOS in ResourceToModify
 
             var TempTodosList = TodosController.TodosListe.Where(s => !ResourceToModify.TodosId.Where(es => es == s.Id).Any());
 
