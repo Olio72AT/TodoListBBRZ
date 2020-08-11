@@ -23,6 +23,10 @@ namespace TODOListAP03.Controllers
         // GET: Todos
         public ActionResult Index()
         {
+            //  V5-Cookies-Sessions-Authorization
+            TODOListAP03.MvcApplication.CallCookieOnce();
+
+
             // Dont forget to forward the LIST to the view .... see IEnumerated in View 
             return View(TodosListe);
         }

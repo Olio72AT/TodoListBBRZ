@@ -101,7 +101,42 @@ namespace TODOListAP03
                 Active = true
 
             });
+ 
 
+        }
+
+        public static void CallCookieOnce()
+        {
+
+            // V5-Cookies-Sessions-Authorization
+            // Read Cookie "" if it exists
+
+            if ( TODOListAP03.Controllers.RessourcenController.cookievalue == "null")
+            {
+
+                HttpCookie cookie = HttpContext.Current.Request.Cookies.Get("todoAPP");
+
+                if (HttpContext.Current.Request.Cookies["todoAPP"] != null)
+                {
+                    TODOListAP03.Controllers.RessourcenController.cookievalue = cookie.Value.ToString();
+
+                }
+                else
+                {
+                    TODOListAP03.Controllers.RessourcenController.cookievalue = "never";
+
+                }
+
+
+                // Now write the current time to the cookie
+
+                HttpCookie cookienew = new HttpCookie("todoAPP");
+
+                cookienew.Value = DateTime.Now.ToString();
+
+                HttpContext.Current.Response.SetCookie(cookienew);
+
+            }
         }
     }
 }

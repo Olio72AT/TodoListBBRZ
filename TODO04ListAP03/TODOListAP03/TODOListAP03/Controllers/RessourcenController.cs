@@ -12,7 +12,7 @@ namespace TODOListAP03.Controllers
     {
         public static List<Resourcen> ResourcesListe = new List<Resourcen>();
         public static List<ResourcenTodosDetailsViewModel> AnzeigeListe = new List<ResourcenTodosDetailsViewModel>();
-        
+        public static string cookievalue = "null";
 
         // GET: Ressourcen
         public ActionResult Index()
@@ -22,6 +22,9 @@ namespace TODOListAP03.Controllers
 
         public ActionResult IndexVM()
         {
+            //  V5-Cookies-Sessions-Authorization
+            TODOListAP03.MvcApplication.CallCookieOnce();
+
             // AnzeigeListe löschen ... 
             AnzeigeListe.Clear();
             
@@ -320,7 +323,7 @@ namespace TODOListAP03.Controllers
             {
                 return View();
             }
-        }
+        }      
 
     }
 }

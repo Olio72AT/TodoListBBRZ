@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TODOListAP03.Models;
+using TODOListAP03.Controllers;
 
 namespace TODOListAP03.Controllers
 {
@@ -14,6 +15,9 @@ namespace TODOListAP03.Controllers
         // GET: Details
         public ActionResult Index()
         {
+            //  V5-Cookies-Sessions-Authorization
+            TODOListAP03.MvcApplication.CallCookieOnce();
+
             return View(DetailsListe);
         }
 
