@@ -1,0 +1,101 @@
+﻿@model TODOListAP03.ViewModels.AddTodoViewModel
+
+@{
+    ViewBag.Title = "AddTodo";
+}
+
+<h2>AddTodo</h2>
+
+
+@*
+    
+    BE CAREFUL -> We need to bind the forms value ParTodo in the POST,
+    otherwise we cannt see the DropDown Result
+
+*@
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>AddTodoViewModel</h4>
+    <hr />
+
+    @*
+
+        WE NEED TO MAKE RESOURCE ID AND NAME READONLY ...
+        ->      , disabled = "disabled", @readonly = "readonly" 
+
+    *@
+
+
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.ResourceId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ResourceId, new { htmlAttributes = new { @class = "form-control" , disabled = "disabled", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.ResourceId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ResourceName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ResourceName, new { htmlAttributes = new { @class = "form-control" , disabled = "disabled", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.ResourceName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    @*
+
+        NOW ADD THE DROPDOWNLIST
+         <div class="form-group">
+                @Html.LabelFor(model => model.Todos, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Todos,new SelectList( Model.Todos,"Id","Kurzbeschreibung"),"Choose Todo ..." , new { @class = "form-control" } )
+           
+                </div>
+         </div>
+
+
+        To get as HTML: 
+        
+        <div class="form-group">
+        <label class="control-label col-md-2" for="Todos">Todos</label>
+        <div class="col-md-10">
+            <select class="form-control" id="Todos" name="Todos"><option value="">Choose Todo ...</option>
+                <option value="1">MVC Lernen</option>
+                <option value="2">MVC &#220;ben</option>
+                <option value="3">MVC Weiter&#252;ben</option>
+                <option value="4">MVC Schummelzettel schreiben</option>
+        </select>
+        
+    *@
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TodoItem, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.TodoItem,new SelectList( Model.TodoItem,"Id","Kurzbeschreibung"),"Choose Todo ..." , new { @class = "form-control" } )
+           
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "IndexVM")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

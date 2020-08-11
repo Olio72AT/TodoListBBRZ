@@ -12,6 +12,7 @@ namespace TODOListAP03.Controllers
     {
         public static List<Resourcen> ResourcesListe = new List<Resourcen>();
         public static List<ResourcenTodosDetailsViewModel> AnzeigeListe = new List<ResourcenTodosDetailsViewModel>();
+        
 
         // GET: Ressourcen
         public ActionResult Index()
@@ -264,5 +265,62 @@ namespace TODOListAP03.Controllers
 
             return RedirectToAction("IndexVM");
         }
+
+
+
+        // GET: Ressourcen/Create
+        public ActionResult AddTodo(int Id)
+        {
+            // First, we receive the RESOURCE ID ... 
+            // ->  public ActionResult AddTodo(int Id)
+
+            var ResourceToModify = ResourcesListe.Where(x => x.Id == Id).FirstOrDefault();
+                       
+
+            // Instanciate the ViewModel to display, so add and access
+            // Add above: 
+            // public static List<AddTodoViewModel> AddTodoAnzeigeListe = new List<AddTodoViewModel>();
+            // now access it.
+
+            var LineToDisplay = new AddTodoViewModel();
+
+            LineToDisplay.ResourceId = ResourceToModify.Id;
+            LineToDisplay.ResourceName = ResourceToModify.Name;
+
+            // Now lets prepare the LIST of Todos by accessing the TodosListe of all existing Todos
+
+            LineToDisplay.TodoItem = TodosController.TodosListe;
+
+            return View(LineToDisplay);
+        }
+
+        // POST: Ressourcen/Create
+        [HttpPost]
+        public ActionResult AddTodo(int Id, int TodoItem)
+        {
+            // MVC can Modelbind, so you can access the parameter TodoItem directly
+            // Ask the teacher about model binding, to get a better understanding of it
+
+            // Don't forget the DataAnnotation [REQUIRED] in the view model for Todos
+            // If no value is REQUIRED, you would get a NULL EXCEPTION for TodoItem,
+            // because int does not allow NULL
+
+            try
+            {
+                // TODO: Add insert logic here
+                var ResourceToModify = ResourcesListe.Where(x => x.Id == Id).FirstOrDefault();
+                ResourceToModify.TodosId.Add(TodoItem);
+
+                // And thats it ... ;) 
+
+
+                return RedirectToAction("IndexVM");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
     }
 }
