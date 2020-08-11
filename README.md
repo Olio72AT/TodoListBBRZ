@@ -66,14 +66,7 @@ So let's implement:
 
 AddTodoViewModel: -> 
 
- public class AddTodoViewModel
-    {
-        public int ResourceId { get; set; }
-        public string ResourceName { get; set; }
-        [REQUIRED]
-        public IEnumerable <Todos> Todos { get; set; }
-    }
-
+https://github.com/Olio72AT/TodoListBBRZ/blob/V3-AddTodo/TODO04ListAP03/TODOListAP03/TODOListAP03/ViewModels/AddTodoViewModel.cs
 
 If you want to implement the Todos with a DropDown List, the best solution is to declare it a IEnumerable.
 (you could also do it as LIST, but we only need to view the list, so this do not need all the LIST methods ...
