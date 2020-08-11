@@ -288,8 +288,16 @@ namespace TODOListAP03.Controllers
             LineToDisplay.ResourceName = ResourceToModify.Name;
 
             // Now lets prepare the LIST of Todos by accessing the TodosListe of all existing Todos
+                       
+            // V4 AddTodo Part: Transfer only missing items:
+            // Bad solution: SQL queries, if you have many items ... (if the DB is externaly bind)
+            // Better read all Tasks once, then campare in memory with LINQ
 
-            LineToDisplay.TodoItem = TodosController.TodosListe;
+            // HOW TO FIND NOT EXISTING TODOS 
+
+            var TempTodosList = TodosController.TodosListe.Where(s => !ResourceToModify.TodosId.Where(es => es == s.Id).Any());
+
+            LineToDisplay.TodoItem = TempTodosList;
 
             return View(LineToDisplay);
         }
