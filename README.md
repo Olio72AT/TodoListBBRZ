@@ -26,7 +26,9 @@ c) ResourceVM AddTodo - right now we offer all Todos in the DropDown List.
 TDB: (To be done)
 
 d) Implement Cookies (Last online time)
+
 e) Implement Sessions (Have a unique runtime ID)
+
 f) Simple authentication (with Pepper and Salt) 
 
 
