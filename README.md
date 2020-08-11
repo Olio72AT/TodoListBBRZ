@@ -1,6 +1,6 @@
 # TodoListBBRZ
 TodoList 
-Branch (V2---DeleteTodo-/-AddTodo)
+Branch (V3-AddTodo)
 
 Project TODOList - >
 
@@ -22,26 +22,7 @@ b) ResourceVM AddTodo -> We need to implement AddTodo to associate exisiting Tod
 to this Resource.
 
 
-AUFGABE: 
+What we need to do now: 
 
-1) Read and understand this approach.
-2) For yourself: Try to change the ViewModel to 
-
- public class ResourcenTodosRemoveViewModel
-    {
-        public Resourcen Res { get; set; }
-        public int TodoId { get; set; }
-
-    }
-
-....
-
-public class ResourcenTodosRemoveViewModel
-    {
-        public Resourcen Res { get; set; }
-        public Todos Todo { get; set; }
-
-    }
-
-to display also the "Kurzbeschreibung" in the Ressourcen/DeleteTodo GET View.
+1) Ask yourself, how you would implement the AddTodo? 
  
