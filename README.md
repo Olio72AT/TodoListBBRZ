@@ -1,4 +1,4 @@
-# TodoListBBRZ
+# TodoListBBRZ (Only for teaching purpose)
 TodoList 
 Project TODOList - >
 
