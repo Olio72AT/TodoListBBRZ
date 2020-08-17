@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -23,7 +23,7 @@ namespace TODOListAP03
 
             TODOListAP03.Controllers.DetailsController.DetailsListe.Clear();
             TODOListAP03.Controllers.DetailsController.DetailsListe.Add(new Details() { Id = 1, Beschreibung = "Zuhause" });
-            TODOListAP03.Controllers.DetailsController.DetailsListe.Add(new Details() { Id = 2, Beschreibung = "Im Büro" });
+            TODOListAP03.Controllers.DetailsController.DetailsListe.Add(new Details() { Id = 2, Beschreibung = "Im BÃ¼ro" });
             TODOListAP03.Controllers.DetailsController.DetailsListe.Add(new Details() { Id = 3, Beschreibung = "Im BBRZ" });
             TODOListAP03.Controllers.DetailsController.DetailsListe.Add(new Details() { Id = 4, Beschreibung = "Im Freien" });
 
@@ -46,7 +46,7 @@ namespace TODOListAP03
                 Active = true,
                 DetailsId = 1,
                 Done = true,
-                Kurzbeschreibung = "MVC Üben",
+                Kurzbeschreibung = "MVC Ãœben",
                 Nummer = 13
             });
 
@@ -56,7 +56,7 @@ namespace TODOListAP03
                 Active = true,
                 DetailsId = 3,
                 Done = false,
-                Kurzbeschreibung = "MVC Weiterüben",
+                Kurzbeschreibung = "MVC WeiterÃ¼ben",
                 Nummer = 14
             });
 
@@ -127,7 +127,9 @@ namespace TODOListAP03
             {
                 Id = 1,
                 UserId = "Oliver",
-                Password = "hallo",
+
+                // we replaced it 
+                Password = "ï¿½ï¿½ï¿½\u001dï¿½ï¿½S\u001aï¿½_Sï¿½\bï¿½#A",
                 Role = roleType.admin,
                 SessionId = "Active",
                 Archive = true
@@ -142,7 +144,9 @@ namespace TODOListAP03
             {
                 Id = 2,
                 UserId = "Martha",
-                Password = "soeasy",
+
+                // we replaced it 
+                Password = "WxS\rï¿½ï¿½Ç´oï¿½7\u0019L1's",
                 Role = roleType.user,
                 SessionId = notactive,
                 Archive = true
