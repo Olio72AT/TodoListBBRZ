@@ -26,7 +26,7 @@ namespace TODOListAP03.Models
 
         // See bug at the Authorization Controller ... we need to implement the ARCHIVE flag :) 
         public bool Archive { get; set; }
-
+         
     }
 
     public enum roleType

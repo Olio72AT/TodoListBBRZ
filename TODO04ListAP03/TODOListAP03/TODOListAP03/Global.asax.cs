@@ -210,6 +210,7 @@ namespace TODOListAP03
 
             // Or for further purpose in the global variable sessionID, located @ the Resource Controller
             TODOListAP03.Controllers.RessourcenController.sessionID = HttpContext.Current.Session.SessionID;
+             
 
             
         }
