@@ -22,12 +22,12 @@ c) ResourceVM AddTodo - right now we offer all Todos in the DropDown List.
 
 -> Show only the not existing yet, to be able to assign the missing Todo. 
 
-
-TDB: (To be done)
-
 d) Implement Cookies (Last online time)
 
 e) Implement Sessions (Have a unique runtime ID)
+
+
+TDB: (To be done)
 
 f) Simple authentication (with Pepper and Salt) 
 
@@ -36,43 +36,39 @@ f) Simple authentication (with Pepper and Salt)
 
 Lets start: 
 
-d) Implement Cookies (Last online time):
-We want to show the last "time" when you started your app.
+f) Simple authentication (with Pepper and Salt) 
 
-Therefore: What code will always been called when you start the MVC App?
-Well, Global.asax is triggered at the beginning. 
+So, we yould like to LOGIN and LOGOUT with a certain password. 
+This password needs to be stored with SALT and PEPPER. In real life, 
+never store the passwords within the source code, neither store any 
+hint verbally. Matter of fact, within the algorithmns, we can of course 
+foresee the way to solve the riddle. This is now a "draft" approach 
+how you can implement the authentication in a simple way. 
 
-The idea: 
+.) We need a model first. 
+- Id
+- UserId
+- Password
+- Role
+- SessionID
 
-© 2020 - Meine ASP.NET-Anwendung
+Your task now is to create the corresponding CRUD functions: 
+1) AuthorizationController 
+2) Index View
+3) Create View
+4) Details View
+5) Delete View 
+6) --- we skip the Modify View
 
-Right under this line, let's output: 
-Last online visit 12:12:00h. Have fun!
+Add an "Logout" Menu entry in the _Layout.cshtml to access it. 
+
+See you at the next chapter ... 
+
+_ 
 
 
-1) So let's read our browser cookie at startup, when it exists and display the value. 
 
-2) Write our cookie with the current time. 
 
-How to do that?
-
-See: public static void CallCookieOnce() @ Global.asax
-
-https://github.com/Olio72AT/TodoListBBRZ/blob/V5-Cookies-Sessions-Authorization/TODO04ListAP03/TODOListAP03/TODOListAP03/Global.asax.cs
-
--------------------------------
-
-3) Sessions: Let's display the unique session ID. 
-
-https://github.com/Olio72AT/TodoListBBRZ/blob/V5-Cookies-Sessions-Authorization/TODO04ListAP03/TODOListAP03/TODOListAP03/Global.asax.cs
-
-There seems to be a bug, when you start the APP in the global main view: (Home Controller)
-
-It says: 
-
-Last online visit null. My SessionID: null. Have fun!
-
-Can you figure out, why? Correct this please ... 
 
 
 
