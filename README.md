@@ -62,4 +62,18 @@ https://github.com/Olio72AT/TodoListBBRZ/blob/V5-Cookies-Sessions-Authorization/
 
 -------------------------------
 
+3) Sessions: Let's display the unique session ID. 
+
+https://github.com/Olio72AT/TodoListBBRZ/blob/V5-Cookies-Sessions-Authorization/TODO04ListAP03/TODOListAP03/TODOListAP03/Global.asax.cs
+
+There seems to be a bug, when you start the APP in the global main view: (Home Controller)
+
+It says: 
+
+Last online visit null. My SessionID: null. Have fun!
+
+Can you figure out, why? Correct this please ... 
+
+
+
 

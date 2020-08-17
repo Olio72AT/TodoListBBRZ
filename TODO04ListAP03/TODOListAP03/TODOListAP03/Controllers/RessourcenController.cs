@@ -13,6 +13,7 @@ namespace TODOListAP03.Controllers
         public static List<Resourcen> ResourcesListe = new List<Resourcen>();
         public static List<ResourcenTodosDetailsViewModel> AnzeigeListe = new List<ResourcenTodosDetailsViewModel>();
         public static string cookievalue = "null";
+        public static string sessionID = "null";
 
         // GET: Ressourcen
         public ActionResult Index()

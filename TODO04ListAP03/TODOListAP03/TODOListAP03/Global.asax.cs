@@ -105,6 +105,13 @@ namespace TODOListAP03
 
         }
 
+        // Bug in MVC5 ... you need to initialize the Session, otherwise the ID always changes
+        private static void Session_Start()
+        {
+            HttpContext.Current.Session.Add("__MyAppSession", string.Empty);
+        }
+
+
         public static void CallCookieOnce()
         {
 
@@ -137,6 +144,17 @@ namespace TODOListAP03
                 HttpContext.Current.Response.SetCookie(cookienew);
 
             }
+
+            // So let's get the Session ID and store it ...
+            Session_Start();
+
+            // In the Session variable MyID - which is available as long as the session is existing
+            HttpContext.Current.Session["MyID"] = TODOListAP03.Controllers.RessourcenController.sessionID;
+
+            // Or for further purpose in the global variable sessionID, located @ the Resource Controller
+            TODOListAP03.Controllers.RessourcenController.sessionID = HttpContext.Current.Session.SessionID;
+
+            
         }
     }
 }
