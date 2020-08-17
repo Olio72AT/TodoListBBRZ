@@ -52,6 +52,9 @@ how you can implement the authentication in a simple way.
 - Role
 - SessionID
 
+https://github.com/Olio72AT/TodoListBBRZ/blob/V6-Authorization/TODO04ListAP03/TODOListAP03/TODOListAP03/Models/Authorization.cs
+
+
 Your task now is to create the corresponding CRUD functions: 
 1) AuthorizationController 
 2) Index View
