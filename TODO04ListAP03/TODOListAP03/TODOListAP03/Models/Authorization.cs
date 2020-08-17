@@ -18,10 +18,14 @@ namespace TODOListAP03.Models
         [Required]
         public string Password { get; set; }
         
+        [Required(ErrorMessage = "Please select the role")]
         public roleType Role { get; set; }
 
         [Required]
         public string SessionId { get; set; }
+
+        // See bug at the Authorization Controller ... we need to implement the ARCHIVE flag :) 
+        public bool Archive { get; set; }
 
     }
 

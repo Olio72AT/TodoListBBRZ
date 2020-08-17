@@ -11,6 +11,7 @@ namespace TODOListAP03
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        public const string notactive = "Not-active";
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -101,7 +102,52 @@ namespace TODOListAP03
                 Active = true
 
             });
- 
+
+            // Add two demo users for authrorization
+
+            /*
+            TODOListAP03.Controllers.AuthorizationController.UserListe.Add(new Authorization()
+            {
+                Id = 1,
+                UserId = "Oliver",
+                Password = "hallo",
+                Role = roleType.admin,
+                SessionId = HttpContext.Current.Session.SessionID
+            }
+
+            );
+            */
+
+            // Well, we have a problem here. The Session Id is yet not available so far ... 
+            // So we need to implement a work arround ... Lets use "Active" ...
+
+            TODOListAP03.Controllers.AuthorizationController.UserListe.Add(new Authorization()
+            {
+                Id = 1,
+                UserId = "Oliver",
+                Password = "hallo",
+                Role = roleType.admin,
+                SessionId = "Active",
+                Archive = true
+            }
+
+            ) ;
+
+            // See Session_Start beneath
+
+
+            TODOListAP03.Controllers.AuthorizationController.UserListe.Add(new Authorization()
+            {
+                Id = 2,
+                UserId = "Martha",
+                Password = "soeasy",
+                Role = roleType.user,
+                SessionId = notactive,
+                Archive = true
+            }
+
+            );
+
 
         }
 
@@ -109,6 +155,17 @@ namespace TODOListAP03
         private static void Session_Start()
         {
             HttpContext.Current.Session.Add("__MyAppSession", string.Empty);
+
+            // From here sessions will be available at runtime for sure. 
+            // Now set the right value for Session ID and replace "active"
+
+            var active_user = TODOListAP03.Controllers.AuthorizationController.UserListe.Where(y => y.SessionId == "Active").FirstOrDefault();
+
+            if (active_user != null)
+                active_user.SessionId = HttpContext.Current.Session.SessionID;
+
+
+
         }
 
 
@@ -156,5 +213,7 @@ namespace TODOListAP03
 
             
         }
+
+
     }
 }

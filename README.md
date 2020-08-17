@@ -26,49 +26,26 @@ d) Implement Cookies (Last online time)
 
 e) Implement Sessions (Have a unique runtime ID)
 
+f) Simple authentication - encryption missing with salt and pepper
+
 
 TDB: (To be done)
 
-f) Simple authentication (with Pepper and Salt) 
+f2) encryption with salt and pepper and use case for authorization
 
 
 --------------------------
 
-Lets start: 
+Lets continue: 
 
 f) Simple authentication (with Pepper and Salt) 
 
-So, we yould like to LOGIN and LOGOUT with a certain password. 
-This password needs to be stored with SALT and PEPPER. In real life, 
-never store the passwords within the source code, neither store any 
-hint verbally. Matter of fact, within the algorithmns, we can of course 
-foresee the way to solve the riddle. This is now a "draft" approach 
-how you can implement the authentication in a simple way. 
+So that we have now realized the basic idea of authorization, 
+we still should "store" the passwords encrypted. 
 
-.) We need a model first. 
-- Id
-- UserId
-- Password
-- Role
-- SessionID
+We use salt and pepper to make hacking much more difficult. 
 
-https://github.com/Olio72AT/TodoListBBRZ/blob/V6-Authorization/TODO04ListAP03/TODOListAP03/TODOListAP03/Models/Authorization.cs
-
-
-Your task now is to create the corresponding CRUD functions: 
-1) AuthorizationController 
-2) Index View
-3) Create View
-4) Details View
-5) Delete View 
-6) --- we skip the Modify View
-
-Add an "Logout" Menu entry in the _Layout.cshtml to access it. 
-
-See you at the next chapter ... 
-
-_ 
-
+We remember the rainbow table. 
 
 
 
