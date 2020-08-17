@@ -47,6 +47,48 @@ We use salt and pepper to make hacking much more difficult.
 
 We remember the rainbow table. 
 
+--------------------------
+
+So let's encrypt the password for a new user. 
+
+We implement a hashing algorythm "GenerateHash" in the global.asax.cs - whenever we 
+have a readable password to decypher or a cyphered password to check, 
+we use this ... 
+
+https://github.com/Olio72AT/TodoListBBRZ/blob/V8-Authorization-Salt-Pepper/TODO04ListAP03/TODOListAP03/TODOListAP03/Global.asax.cs
+
+So let's use it for new users ... See the Logout Index View now ... 
+
+----------------------------
+
+Next steps to do: 
+
+g) As logged on user, you should be able to logout, so we add a LOGOUT to the active line and 
+implement the code for it. 
+
+h) Whenever the user is logged out, we should display LOGIN instead of LOGOUT in the main menu. 
+
+i) When we press LOGIN, we should be able to login as the certain user. 
+So lets create the login view. (Choose if you like a view model or the plain authorization model)
+
+----------------------------
+
+but before we do this - YOUR TASK IS NOW TO: 
+
+Create 2 dummy users with the password for Oliver and Martha. 
+
+Remember the salted and peppered password, so that you 
+can easily take them over in the global.asax.cs from now on. 
+
+For the demo ... use "123" as the pepper value.  
+
+See you in the next lession ... 
+
+
+
+
+
+
 
 
 

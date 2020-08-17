@@ -51,10 +51,23 @@ namespace TODOListAP03.Controllers
                 
                 newUser.Id = UserListe.Count + 1;
                 newUser.UserId = auth.UserId;
-                newUser.Password = auth.Password;
+                
+                
+                // newUser.Password = auth.Password;
+                newUser.Password = TODOListAP03.MvcApplication.GenerateHash(auth.Password);
+
+                // Well, let's put salt and pepper on top of it ... 
+                // salt = UserID
+                // pepper = usually stored externally not within database or code ... 
+                // for the showcase, we extend the inputs parameters with a pepper field. 
+                // Extend the model and the create view ... 
+
+                newUser.Password = TODOListAP03.MvcApplication.GenerateHash(auth.Password + auth.UserId + auth.Pepper);
+
                 newUser.SessionId = TODOListAP03.MvcApplication.notactive;
                 newUser.Role = auth.Role;
                 newUser.Archive = true;
+                    
 
                 UserListe.Add(newUser);
 

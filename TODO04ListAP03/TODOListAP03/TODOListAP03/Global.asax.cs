@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -212,6 +214,16 @@ namespace TODOListAP03
             TODOListAP03.Controllers.RessourcenController.sessionID = HttpContext.Current.Session.SessionID;
 
             
+        }
+
+        public static string GenerateHash(string cleanpw)
+        {
+            var md5 = new MD5CryptoServiceProvider();
+            var ba = Encoding.UTF8.GetBytes(cleanpw);
+            var md5data = md5.ComputeHash(ba, 0, ba.Length);
+
+            string pwrStr = System.Text.Encoding.UTF8.GetString(md5data, 0, md5data.Length);
+            return pwrStr;
         }
 
 
