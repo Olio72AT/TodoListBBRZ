@@ -33,8 +33,20 @@
         LOGOUT to the active line and implement the code for it.
 
                     *@
-                    <li>@Html.ActionLink("Admin", "Index", "Authorization")</li>
-                    <li>@Html.ActionLink("Logout", "Index", "Authorization")</li>
+
+                    @if (TODOListAP03.Controllers.RessourcenController.whoami == "")
+                    {
+                        <li>@Html.ActionLink("Login", "Login", "Authorization")</li>
+                        
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Admin", "Index", "Authorization")</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Authorization")</li>
+
+                    }
+
+
                 </ul>
             </div>
         </div>

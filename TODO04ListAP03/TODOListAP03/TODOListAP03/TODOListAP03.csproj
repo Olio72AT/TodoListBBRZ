@@ -198,6 +198,7 @@
     <Content Include="Views\Authorization\Details.cshtml" />
     <Content Include="Views\Authorization\Delete.cshtml" />
     <Content Include="Views\Authorization\Create.cshtml" />
+    <Content Include="Views\Authorization\Logout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

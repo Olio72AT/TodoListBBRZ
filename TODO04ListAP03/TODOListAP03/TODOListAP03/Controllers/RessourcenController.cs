@@ -15,6 +15,10 @@ namespace TODOListAP03.Controllers
         public static string cookievalue = "null";
         public static string sessionID = "null";
 
+        // we need another static field to remember our UserID - bug if the session lifetime has ended. 
+        public static string whoami = "";
+
+
         // GET: Ressourcen
         public ActionResult Index()
         {

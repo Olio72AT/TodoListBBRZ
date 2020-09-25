@@ -38,21 +38,17 @@ g) As logged on user, you should be able to logout, so we add a LOGOUT to the ac
 implement the code for it. We replaced the LOGOUT to ADMIN and added a new Menu item LOGOUT.
 (Code to be implemented in point h)
 
+h) Whenever the user is logged out, we should display LOGIN instead of LOGOUT in the main menu.
+
+j) WE MIGHT HAVE A PROBLEM, if the session ID is not valid anymore ... so? 
+We needed a static field called WHOAMI to remember me as the logged on user.
+(defined now in the resource controller ...)
 
 TDB: (To be done)
- 
-
-h) Whenever the user is logged out, we should display LOGIN instead of LOGOUT in the main menu. 
 
 i) When we press LOGIN, we should be able to login as the certain user. 
 So lets create the login view. (Choose if you like a view model or the plain authorization model)
 
-j) WE MIGHT HAVE A PROBLEM, if the session ID is not valid anymore ... so? 
-We should implement the final approach ... 
-
---------------------------
-
-Lets continue: 
 
 
 

@@ -168,7 +168,13 @@ namespace TODOListAP03
             var active_user = TODOListAP03.Controllers.AuthorizationController.UserListe.Where(y => y.SessionId == "Active").FirstOrDefault();
 
             if (active_user != null)
+            {
                 active_user.SessionId = HttpContext.Current.Session.SessionID;
+
+                TODOListAP03.Controllers.RessourcenController.whoami = active_user.UserId;
+            }
+
+
 
 
 
@@ -220,8 +226,40 @@ namespace TODOListAP03
             // Or for further purpose in the global variable sessionID, located @ the Resource Controller
             TODOListAP03.Controllers.RessourcenController.sessionID = HttpContext.Current.Session.SessionID;
 
-            
+            CheckIfSessionIdIsStillValid();
+
+
         }
+
+        public static bool CheckIfSessionIdIsStillValid ()
+        {
+
+            // Check if the sessionId has been changed due to lifetime
+            if (TODOListAP03.Controllers.RessourcenController.sessionID != HttpContext.Current.Session.SessionID)
+            {
+                LogoutCurrentUser();
+                return false;
+            }
+            
+            return true;
+
+        }
+
+        public static void LogoutCurrentUser()
+        {
+            // Remove the SessionId of this user in the ResourceListe
+            var Whoaminow = TODOListAP03.Controllers.AuthorizationController.UserListe.Where(x => x.UserId == TODOListAP03.Controllers.RessourcenController.whoami).FirstOrDefault();
+
+            if (Whoaminow != null)
+            {
+                Whoaminow.SessionId = notactive;
+                TODOListAP03.Controllers.RessourcenController.whoami = "";
+
+            }
+
+        }
+
+
 
         public static string GenerateHash(string cleanpw)
         {

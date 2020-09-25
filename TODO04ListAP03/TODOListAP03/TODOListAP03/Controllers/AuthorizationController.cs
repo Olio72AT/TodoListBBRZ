@@ -21,6 +21,17 @@ namespace TODOListAP03.Controllers
             return View(UserListe);
         }
 
+        public ActionResult Logout()
+        {
+            // V10 Patch correction cookies
+            // Call cookie once for every index view ...  
+            TODOListAP03.MvcApplication.CallCookieOnce();
+
+            TODOListAP03.MvcApplication.LogoutCurrentUser();
+
+            return View();
+        }
+
         // GET: Authorization/Details/5
         public ActionResult Details(int id)
         {
