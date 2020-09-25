@@ -31,11 +31,16 @@ f) Simple authentication - encryption missing with salt and pepper
 f2) encryption with salt and pepper and use case for authorization
 including the passwords for Oliver and Martha. 
 
-
-TDB: (To be done)
+k) Patch corretion: 
+k1) Correct wrong SessionID indications / set the cookie lifetime value to 2 days.
 
 g) As logged on user, you should be able to logout, so we add a LOGOUT to the active line and 
-implement the code for it. 
+implement the code for it. We replaced the LOGOUT to ADMIN and added a new Menu item LOGOUT.
+(Code to be implemented in point h)
+
+
+TDB: (To be done)
+ 
 
 h) Whenever the user is logged out, we should display LOGIN instead of LOGOUT in the main menu. 
 

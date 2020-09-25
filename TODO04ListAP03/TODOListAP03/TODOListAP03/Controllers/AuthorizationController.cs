@@ -14,6 +14,10 @@ namespace TODOListAP03.Controllers
         // GET: Authorization
         public ActionResult Index()
         {
+            // V10 Patch correction cookies
+            // Call cookie once for every index view ...  
+            TODOListAP03.MvcApplication.CallCookieOnce();
+
             return View(UserListe);
         }
 

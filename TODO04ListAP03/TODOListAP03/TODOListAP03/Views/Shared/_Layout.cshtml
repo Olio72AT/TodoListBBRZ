@@ -26,6 +26,14 @@
                     <li>@Html.ActionLink("Details", "Index", "Details")</li>
                     <li>@Html.ActionLink("ViewModel", "ShowViewModel", "Todos")</li>
                     <li>@Html.ActionLink("ResourcenVM", "IndexVM", "Ressourcen")</li>
+
+                    @*
+        V10:
+        g) As logged on user, you should be able to logout, so we add a
+        LOGOUT to the active line and implement the code for it.
+
+                    *@
+                    <li>@Html.ActionLink("Admin", "Index", "Authorization")</li>
                     <li>@Html.ActionLink("Logout", "Index", "Authorization")</li>
                 </ul>
             </div>

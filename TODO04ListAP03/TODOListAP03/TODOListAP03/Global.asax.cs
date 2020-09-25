@@ -204,6 +204,9 @@ namespace TODOListAP03
 
                 cookienew.Value = DateTime.Now.ToString();
 
+                // Patch correction Cookie Lifetime
+                cookienew.Expires = DateTime.Now.AddDays(2);
+
                 HttpContext.Current.Response.SetCookie(cookienew);
 
             }
