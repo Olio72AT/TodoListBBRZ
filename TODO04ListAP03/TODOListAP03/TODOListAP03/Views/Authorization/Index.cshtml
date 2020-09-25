@@ -7,8 +7,21 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    @{
+        var myprofile = TODOListAP03.Controllers.AuthorizationController.UserListe.
+            Where(z => z.UserId == TODOListAP03.Controllers.RessourcenController.whoami).FirstOrDefault();
+
+        if (myprofile != null)
+        {
+            if (myprofile.Role == TODOListAP03.Models.roleType.admin)
+            {
+                @Html.ActionLink("Create New", "Create")
+
+                }
+
+            }
+        }
+    </p>
 <table class="table">
     <tr>
         <th>
@@ -33,8 +46,83 @@
             Archive Flag implementation:
         *@
 
-        if (item.Archive == true)
-        { 
+        if (myprofile != null)
+        {
+            if (myprofile.Role == TODOListAP03.Models.roleType.user)
+            {
+                if (item.UserId == TODOListAP03.Controllers.RessourcenController.whoami)
+                {
+                    if (item.Archive == true)
+                    {
+
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Password)
+                            </td>
+                            <th>
+                                @Html.DisplayFor(modelitem => item.Role)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SessionId)
+                            </td>
+                            <td>
+
+                                @*
+                                    As proposed, we do not want to modify the password, so let's comment it
+                                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                *@
+
+                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+
+            else
+            {
+                if (item.Archive == true)
+                {
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Password)
+                        </td>
+                        <th>
+                            @Html.DisplayFor(modelitem => item.Role)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SessionId)
+                        </td>
+                        <td>
+
+                            @*
+                                As proposed, we do not want to modify the password, so let's comment it
+                                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            *@
+
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+
+            }
+
+        }
+
+
+        else
+        {
+            if (item.Archive == true)
+            {
 
                 <tr>
                     <td>
@@ -60,7 +148,9 @@
                         @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                     </td>
                 </tr>
+            }
         }
-    }
-
+     }
 </table>
+
+<p> DO NOT FORGET TO DELETE THE ORIGIN USERS, after you have created new ADMINs or USERs ;)</p>

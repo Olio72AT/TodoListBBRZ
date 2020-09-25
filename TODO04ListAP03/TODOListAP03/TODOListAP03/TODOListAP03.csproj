@@ -134,6 +134,7 @@
     <Compile Include="Models\Todos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AddTodoViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ResourcenTodosDetailsViewModel.cs" />
     <Compile Include="ViewModels\ResourcenTodosRemoveViewModel.cs" />
     <Compile Include="ViewModels\TodosDetailsViewModel.cs" />
@@ -199,6 +200,7 @@
     <Content Include="Views\Authorization\Delete.cshtml" />
     <Content Include="Views\Authorization\Create.cshtml" />
     <Content Include="Views\Authorization\Logout.cshtml" />
+    <Content Include="Views\Authorization\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

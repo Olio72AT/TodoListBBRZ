@@ -259,6 +259,13 @@ namespace TODOListAP03
 
         }
 
+        public static string GetCurrentSessionId()
+        {
+            return HttpContext.Current.Session.SessionID;
+
+        }
+
+
 
 
         public static string GenerateHash(string cleanpw)

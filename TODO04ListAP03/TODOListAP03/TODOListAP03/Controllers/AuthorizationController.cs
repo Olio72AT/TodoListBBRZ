@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TODOListAP03.Models;
+using TODOListAP03.ViewModels;
 
 namespace TODOListAP03.Controllers
 {
@@ -18,7 +19,59 @@ namespace TODOListAP03.Controllers
             // Call cookie once for every index view ...  
             TODOListAP03.MvcApplication.CallCookieOnce();
 
+
+            // Prevent Index View if user is not logged on. 
+            if (TODOListAP03.Controllers.RessourcenController.whoami == "")
+                return RedirectToAction("Logout");
+
             return View(UserListe);
+        }
+
+        // GET: Authorization/Create
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        // POST: Authorization/Create
+        [HttpPost]
+        public ActionResult Login(LoginViewModel loginViewModel)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+                // Let's check if the user exists? 
+                var AuthToLogin = UserListe.Where(x => x.UserId == loginViewModel.UserId).FirstOrDefault();
+
+                if (AuthToLogin != null)
+                {
+
+                    var test = TODOListAP03.MvcApplication.GenerateHash(loginViewModel.Password);
+
+                    if (AuthToLogin.Password == TODOListAP03.MvcApplication.
+                        GenerateHash(loginViewModel.UserId+loginViewModel.Password+loginViewModel.Pepper))
+                    {
+                        // User authorized 
+                        AuthToLogin.SessionId = TODOListAP03.MvcApplication.GetCurrentSessionId();
+
+                        TODOListAP03.Controllers.RessourcenController.whoami = AuthToLogin.UserId;
+
+                        return RedirectToAction("Index");
+                    
+                    }
+                }
+
+                ViewBag.LoginError = "Not authorized!";
+
+                return View();
+
+
+
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         public ActionResult Logout()
@@ -83,7 +136,6 @@ namespace TODOListAP03.Controllers
                 newUser.Role = auth.Role;
                 newUser.Archive = true;
                     
-
                 UserListe.Add(newUser);
 
 

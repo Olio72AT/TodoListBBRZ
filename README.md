@@ -44,10 +44,15 @@ j) WE MIGHT HAVE A PROBLEM, if the session ID is not valid anymore ... so?
 We needed a static field called WHOAMI to remember me as the logged on user.
 (defined now in the resource controller ...)
 
-TDB: (To be done)
-
 i) When we press LOGIN, we should be able to login as the certain user. 
 So lets create the login view. (Choose if you like a view model or the plain authorization model)
+
+and some final cosmetics ... 
+
+TDB: (To be done)
+
+Finished. (If you find bugs, feel free to correct them)
+
 
 
 
