@@ -42,6 +42,8 @@ h) Whenever the user is logged out, we should display LOGIN instead of LOGOUT in
 i) When we press LOGIN, we should be able to login as the certain user. 
 So lets create the login view. (Choose if you like a view model or the plain authorization model)
 
+j) WE MIGHT HAVE A PROBLEM, if the session ID is not valid anymore ... so? 
+We should implement the final approach ... 
 
 --------------------------
 
